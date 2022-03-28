@@ -1,15 +1,39 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    sampleBlogCards: [
+      {
+        blotTitle: "Blog Card 1",
+        blogCoverPhoto: "stock-1",
+        blogDate: "1 May 2022",
+      },
+      {
+        blotTitle: "Blog Card 2",
+        blogCoverPhoto: "stock-2",
+        blogDate: "1 May 2022",
+      },
+      {
+        blotTitle: "Blog Card 3",
+        blogCoverPhoto: "stock-3",
+        blogDate: "1 May 2022",
+      },
+      {
+        blotTitle: "Blog Card 4",
+        blogCoverPhoto: "stock-4",
+        blogDate: "1 May 2022",
+      },
+    ],
+    editPost: null,
   },
   mutations: {
+    toggleEditPost(state, payload) {
+      state.editPost = payload;
+    },
   },
-  actions: {
-  },
-  modules: {
-  }
-})
+  actions: {},
+  modules: {},
+});
