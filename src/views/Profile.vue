@@ -51,11 +51,11 @@ export default {
     };
   },
   methods: {
-    closeModal() {
-      this.modalActive = !this.modalActive;
-    },
     updateProfile() {
       this.$store.dispatch("updateUserSettings");
+      this.modalActive = !this.modalActive;
+    },
+    closeModal() {
       this.modalActive = !this.modalActive;
     },
   },
@@ -90,7 +90,6 @@ export default {
   },
 };
 </script>
-
 <style lang="scss" scoped>
 .profile {
   .container {
