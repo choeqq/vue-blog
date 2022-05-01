@@ -1,6 +1,6 @@
 <template>
   <div class="form-wrap">
-    <form action="" class="register">
+    <form class="register">
       <p class="login-register">
         Already have an account?
         <router-link class="router-link" :to="{ name: 'Login' }"
@@ -67,10 +67,10 @@ export default {
     async register() {
       if (
         this.email !== "" &&
+        this.password !== "" &&
         this.firstName !== "" &&
         this.lastName !== "" &&
-        this.username !== "" &&
-        this.password !== ""
+        this.username !== ""
       ) {
         this.error = false;
         this.errorMsg = "";
@@ -91,7 +91,7 @@ export default {
         return;
       }
       this.error = true;
-      this.errorMsg = "Please fill out all the fields";
+      this.errorMsg = "Please fill out all the fields!";
       return;
     },
   },
