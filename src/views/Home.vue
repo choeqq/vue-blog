@@ -2,9 +2,9 @@
   <div class="home">
     <BlogPost v-if="!user" :post="welcomeScreen" />
     <BlogPost
-      v-for="(post, index) in sampleBlogPost"
-      :key="index"
       :post="post"
+      v-for="(post, index) in blogPostsFeed"
+      :key="index"
     />
     <div class="blog-card-wrap">
       <div class="container">
@@ -12,7 +12,7 @@
         <div class="blog-cards">
           <BlogCard
             :post="post"
-            v-for="(post, index) in sampleBlogCards"
+            v-for="(post, index) in blogPostsCards"
             :key="index"
           />
         </div>
@@ -20,18 +20,18 @@
     </div>
     <div v-if="!user" class="updates">
       <div class="container">
-        <h2>Never miss a post. Register for your free account today!</h2>
-        <router-link class="router-button" to="#"
-          >Register for VueBlog <Arrow class="arrow arrow-light"
-        /></router-link>
+        <h2>never miss a post. Register for your free account today!</h2>
+        <router-link class="router-button" to="#">
+          Register for VueBlogs <Arrow class="arrow arrow-light" />
+        </router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import BlogPost from "../components/BlogPost.vue";
-import BlogCard from "../components/BlogCard.vue";
+import BlogPost from "../components/BlogPost";
+import BlogCard from "../components/BlogCard";
 import Arrow from "../assets/Icons/arrow-right-light.svg";
 export default {
   name: "Home",
@@ -45,23 +45,14 @@ export default {
         welcomeScreen: true,
         photo: "coding",
       },
-      sampleBlogPost: [
-        {
-          title: "this is a filter title",
-          blogHTML: "this is a filter blog post title",
-          blogCoverPhoto: "beautiful-stories",
-        },
-        {
-          title: "this is a filter title",
-          blogHTML: "this is a filter blog post title",
-          blogCoverPhoto: "designed-for-everyone",
-        },
-      ],
     };
   },
   computed: {
-    sampleBlogCards() {
-      return this.$store.state.sampleBlogCards;
+    blogPostsFeed() {
+      return this.$store.getters.blogPostsFeed;
+    },
+    blogPostsCards() {
+      return this.$store.getters.blogPostsCards;
     },
     user() {
       return this.$store.state.user;
@@ -78,7 +69,6 @@ export default {
     margin-bottom: 32px;
   }
 }
-
 .updates {
   .container {
     padding: 100px 25px;
@@ -89,7 +79,6 @@ export default {
       padding: 125px 25px;
       flex-direction: row;
     }
-
     .router-button {
       display: flex;
       font-size: 14px;
@@ -98,7 +87,6 @@ export default {
         margin-left: auto;
       }
     }
-
     h2 {
       font-weight: 300;
       font-size: 32px;
