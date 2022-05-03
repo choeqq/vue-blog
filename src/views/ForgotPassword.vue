@@ -2,8 +2,8 @@
   <div class="reset-password">
     <Modal
       v-if="modalActive"
-      v-on:close-modal="closeModal"
       :modalMessage="modalMessage"
+      v-on:close-modal="closeModal"
     />
     <Loading v-if="loading" />
     <div class="form-wrap">
@@ -18,8 +18,8 @@
         <p>Forgot your password? Enter your email to reset it</p>
         <div class="inputs">
           <div class="input">
-            <input type="text" placeholder="email" v-model="email" />
-            <email class="icon"></email>
+            <input type="text" placeholder="Email" v-model="email" />
+            <email class="icon" />
           </div>
         </div>
         <button @click.prevent="resetPassword">Reset</button>
@@ -33,15 +33,15 @@
 <script>
 import email from "../assets/Icons/envelope-regular.svg";
 import Modal from "../components/Modal";
-import Loading from "../components/Loading.vue";
+import Loading from "../components/Loading";
 import firebase from "firebase/app";
 import "firebase/auth";
 export default {
   name: "ForgotPassword",
   data() {
     return {
-      email: null,
-      modalActive: null,
+      email: "",
+      modalActive: false,
       modalMessage: "",
       loading: null,
     };

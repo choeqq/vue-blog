@@ -45,12 +45,14 @@ export default {
   .container {
     max-width: 1000px;
     padding: 60px 25px;
+
     h2 {
       text-align: center;
       margin-bottom: 16px;
       font-weight: 300;
       font-size: 32px;
     }
+
     .admin-info {
       border-radius: 8px;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -61,11 +63,14 @@ export default {
       flex-direction: column;
       max-width: 600px;
       margin: 32px auto;
+
       span {
         font-size: 14px;
       }
+
       .input {
         margin: 16px 0;
+
         label {
           font-size: 14px;
           display: block;
@@ -79,11 +84,13 @@ export default {
           height: 50px;
           @media (min-width: 900px) {
           }
+
           &:focus {
             outline: none;
           }
         }
       }
+
       button {
         align-self: center;
       }
