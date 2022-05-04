@@ -1,5 +1,7 @@
 # vueblogs
 
+First Vue project :)
+
 ## Project setup
 
 ```
